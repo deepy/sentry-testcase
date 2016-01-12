@@ -1,0 +1,18 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="AppEnlight" class="net.kencochrane.raven.logback.SentryAppender">
+        <dsn>https://PRIVATE_API_KEY:secret@api.appenlight.com/sentry</dsn>
+    </appender>
+
+    <root level="warn">
+        <appender-ref ref="AppEnlight"/>
+    </root>
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
